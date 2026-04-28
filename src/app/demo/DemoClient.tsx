@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { CheckCircle2, ShieldAlert, MonitorPlay, Lock } from 'lucide-react';
+import { CheckCircle2, ShieldAlert, MonitorPlay, Lock, Download } from 'lucide-react';
 
 export default function DemoClient() {
   const searchParams = useSearchParams();
@@ -141,6 +141,17 @@ export default function DemoClient() {
             <p>O <strong>USUÁRIO</strong> declara ciência de que o conteúdo a seguir é Propriedade Intelectual do PROVEDOR. Compromete-se a manter sigilo absoluto, não replicar a lógica de negócio e não utilizar as informações apresentadas para fins próprios ou para terceiros, concorrentes ou não.</p>
             <p>O PROVEDOR declara que a visualização deste vídeo não coleta dados sensíveis do USUÁRIO, e garante que em nenhuma hipótese utilizará informações reais da empresa do USUÁRIO para fins comerciais. Os dados do cliente são de sua propriedade exclusiva.</p>
             <p>O clique no botão "LI E CONCORDO / ASSISTIR DEMO" constitui assinatura eletrônica vinculante, registrando o IP, data e hora do acesso para fins de prova judicial, conforme o Art. 10 da MP 2.200-2/2001. A violação deste termo sujeitará o infrator ao pagamento de multas por quebra de sigilo e perdas e danos.</p>
+            
+            <div className="mt-8 pt-6 border-t border-gray-800">
+              <a 
+                href="/Termo_de_Confidencialidade_CalcForgeTools.txt" 
+                download="Termo_de_Confidencialidade_CalcForgeTools.txt"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm text-gray-200 hover:text-white transition-all font-semibold shadow-sm border border-gray-700 hover:border-gray-600"
+              >
+                <Download size={16} className="text-blue-400" />
+                Baixar Termo Completo
+              </a>
+            </div>
           </div>
         </div>
 
