@@ -144,11 +144,25 @@ export default function DemoClient() {
           </div>
         </div>
 
-        {/* Lado do Formulário */}
-        <div className="p-8 md:p-12 flex flex-col justify-center">
+        {/* Lado do Formulário e Marca */}
+        <div className="p-8 md:p-12 flex flex-col justify-center bg-gray-50/50 relative overflow-y-auto custom-scrollbar">
           <div className="mb-8">
-            <h1 className="text-2xl font-extrabold text-gray-900 mb-2">Acesso à Demonstração</h1>
-            <p className="text-gray-500 text-sm">Por favor, identifique-se para validar sua sessão e desbloquear o vídeo.</p>
+            <h1 className="text-4xl font-extrabold text-blue-600 mb-5 tracking-tight flex items-center gap-2">
+              CalcForge<span className="text-gray-900">Tools</span>
+            </h1>
+            
+            <div className="space-y-2 mb-8 bg-white p-5 rounded-xl border border-blue-100/50 shadow-sm">
+              <h3 className="text-sm font-bold text-gray-800 flex items-center gap-2">
+                <ShieldAlert size={16} className="text-blue-500" /> Nossa Missão
+              </h3>
+              <p className="text-xs text-gray-600 leading-relaxed font-medium">
+                Foco em transparência e segurança. Buscamos traduzir a complexidade do mundo 
+                trazendo soluções de alto nível para evoluir continuamente os processos dos nossos clientes.
+              </p>
+            </div>
+
+            <h2 className="text-xl font-bold text-gray-900 mb-1">Acesso à Demonstração</h2>
+            <p className="text-gray-500 text-sm">Identifique-se para validar a sessão e desbloquear o vídeo com segurança.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

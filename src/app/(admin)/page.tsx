@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { startOfMonth, endOfMonth, eachDayOfInterval, format, isSameDay, isSameMonth } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import { Calendar, CheckCircle2, AlertCircle, Clock } from 'lucide-react';
+import { Calendar, CheckCircle2, AlertCircle, Clock, Link as IconLink } from 'lucide-react';
 
 interface Contrato {
   id: string;
   cliente: string;
   vencimento: string;
   status: string;
+  link_doc?: string;
 }
 
 export default function GestaoContratos() {
@@ -145,9 +146,16 @@ export default function GestaoContratos() {
                   </div>
                   <div className="space-y-1">
                     {dayContratos.map(contrato => (
-                      <div key={contrato.id} className="px-2 py-1 flex items-center gap-1.5 text-xs rounded border bg-blue-50 border-blue-100 text-blue-700 truncate shadow-sm">
-                        <Clock size={12} className="shrink-0" />
-                        <span className="truncate">{contrato.cliente}</span>
+                      <div key={contrato.id} className="px-2 py-1 flex items-center justify-between text-xs rounded border bg-blue-50 border-blue-100 text-blue-700 shadow-sm relative group">
+                        <div className="flex items-center gap-1.5 truncate">
+                          <Clock size={12} className="shrink-0" />
+                          <span className="truncate">{contrato.cliente}</span>
+                        </div>
+                        {contrato.link_doc && (
+                          <a href={contrato.link_doc} target="_blank" rel="noreferrer" className="text-blue-500 hover:text-blue-800 shrink-0" title="Abrir contrato Google Docs">
+                            <IconLink size={12} />
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>

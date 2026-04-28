@@ -8,14 +8,14 @@ import { FilePlus2, Link as IconLink, User, CalendarDays } from 'lucide-react';
 export default function CriarContrato() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ cliente: '', vencimento: '' });
+  const [form, setForm] = useState({ cliente: '', vencimento: '', link_doc: '' });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     const { error } = await supabase.from('contratos').insert([
-      { cliente: form.cliente, vencimento: form.vencimento }
+      { cliente: form.cliente, vencimento: form.vencimento, link_doc: form.link_doc }
     ]);
 
     setLoading(false);
@@ -69,6 +69,22 @@ export default function CriarContrato() {
                 className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-gray-800"
                 value={form.vencimento}
                 onChange={e => setForm({ ...form, vencimento: e.target.value })}
+              />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-gray-700 block">Link Único (Google Docs)</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <IconLink size={18} className="text-gray-400" />
+              </div>
+              <input
+                type="url"
+                className="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all outline-none text-gray-800"
+                placeholder="https://docs.google.com/document/d/..."
+                value={form.link_doc}
+                onChange={e => setForm({ ...form, link_doc: e.target.value })}
               />
             </div>
           </div>
