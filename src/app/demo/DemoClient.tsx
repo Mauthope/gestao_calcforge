@@ -144,12 +144,13 @@ export default function DemoClient() {
             
             <div className="mt-8 pt-6 border-t border-gray-800">
               <a 
-                href="/Termo_de_Confidencialidade_CalcForgeTools.txt" 
-                download="Termo_de_Confidencialidade_CalcForgeTools.txt"
+                href="/Termo_de_Confidencialidade_CalcForgeTools.html" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 text-sm text-gray-200 hover:text-white transition-all font-semibold shadow-sm border border-gray-700 hover:border-gray-600"
               >
                 <Download size={16} className="text-blue-400" />
-                Baixar Termo Completo
+                Baixar Termo Completo (HTML)
               </a>
             </div>
           </div>
